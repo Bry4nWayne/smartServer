@@ -8,15 +8,17 @@ import java.net.Socket;
 
 public class Server {
 
+    final static int PORT_NUMBER = 4495;
+
     public static void main(String[] args) {
         String command;
         Server obj = new Server();
 
 
-        int portNumber = 4495;
+
 
         try (
-                ServerSocket serverSocket = new ServerSocket(portNumber);
+                ServerSocket serverSocket = new ServerSocket(PORT_NUMBER);
                 Socket clientSocket = serverSocket.accept();
                 PrintWriter out =
                         new PrintWriter(clientSocket.getOutputStream(), true);
@@ -40,7 +42,7 @@ public class Server {
             }
         } catch (IOException e) {
             System.out.println("Exception caught when trying to listen on port "
-                    + portNumber + " or listening for a connection");
+                    + PORT_NUMBER + " or listening for a connection");
             System.out.println(e.getMessage());
         }
 
